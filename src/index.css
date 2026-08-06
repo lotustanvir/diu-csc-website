@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-night-950: #05070d;
+  --color-night-900: #0a0e17;
+  --color-night-850: #0d1322;
+  --color-night-800: #0f172a;
+  --color-night-700: #1a2438;
+  --color-night-600: #1e293b;
+
+  --color-cyber-200: #a5f9ff;
+  --color-cyber-300: #67f7ff;
+  --color-cyber-400: #00f0ff;
+  --color-cyber-500: #00c8d6;
+  --color-cyber-600: #0094a3;
+
+  --color-electric-300: #93c5fd;
+  --color-electric-400: #60a5fa;
+  --color-electric-500: #3b82f6;
+  --color-electric-600: #2563eb;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-night-900);
+  color: #cbd5e1;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(0, 240, 255, 0.25);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-night-950);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-cyber-400), var(--color-electric-500));
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cyber-400);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 45s linear infinite;
+  will-change: transform;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-nav {
+  background: rgba(10, 14, 23, 0.78);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.bg-circuit {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%2300f0ff' stroke-opacity='0.09' stroke-width='1'%3E%3Cpath d='M0 32h32v32M32 0v32h32M0 12h24M40 64V40h24M8 0v16M56 48h8M0 56h12M52 0v12'/%3E%3Ccircle cx='32' cy='32' r='2.5' fill='%2300f0ff' fill-opacity='0.14'/%3E%3Ccircle cx='24' cy='12' r='1.8' fill='%2300f0ff' fill-opacity='0.14'/%3E%3Ccircle cx='40' cy='52' r='1.8' fill='%2300f0ff' fill-opacity='0.14'/%3E%3C/g%3E%3C/svg%3E");
+}
