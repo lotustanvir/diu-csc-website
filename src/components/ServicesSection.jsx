@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import {
   AlertTriangle,
   Building2,
+  FileText,
   GraduationCap,
   Landmark,
   PhoneCall,
-  Siren,
   ShieldAlert,
+  Siren,
   Users,
 } from 'lucide-react'
 
@@ -109,7 +111,7 @@ export default function ServicesSection() {
                 </div>
                 <h3 className="mt-4 text-lg font-bold text-white">{tier.name}</h3>
                 <p className="mt-1 text-sm font-semibold text-cyber-400">{tier.price}</p>
-                <ul className="mt-5 space-y-2.5">
+                <ul className="mt-5 flex-1 space-y-2.5">
                   {tier.points.map((point) => (
                     <li
                       key={point}
@@ -120,6 +122,15 @@ export default function ServicesSection() {
                     </li>
                   ))}
                 </ul>
+                {tier.tier === 'TIER 1' && (
+                  <Link
+                    to="/complaint"
+                    className="group/complaint mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-cyber-400/40 bg-cyber-400/10 px-5 py-3 text-sm font-semibold text-cyber-300 transition-all hover:bg-gradient-to-r hover:from-cyber-400 hover:to-electric-500 hover:text-night-950 hover:shadow-[0_0_24px_rgba(0,240,255,0.35)]"
+                  >
+                    <FileText className="h-4 w-4 transition-transform group-hover/complaint:-rotate-6" />
+                    Submit a Complaint
+                  </Link>
+                )}
               </motion.div>
             ))}
           </div>

@@ -5,6 +5,7 @@ import CourseGrid from '../components/CourseGrid.jsx'
 import ServicesSection from '../components/ServicesSection.jsx'
 import OlympiadBanner from '../components/OlympiadBanner.jsx'
 import PartnershipSection from '../components/PartnershipSection.jsx'
+import TeamSection from '../components/TeamSection.jsx'
 import Testimonials from '../components/Testimonials.jsx'
 import CTASection from '../components/CTASection.jsx'
 import Footer from '../components/Footer.jsx'
@@ -20,6 +21,7 @@ export default function Home() {
         <ServicesSection />
         <OlympiadBanner />
         <PartnershipSection />
+        <TeamSection />
         <Testimonials />
         <CTASection />
       </main>

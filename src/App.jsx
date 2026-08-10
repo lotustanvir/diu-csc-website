@@ -4,6 +4,8 @@ import { Loader2 } from 'lucide-react'
 import Home from './pages/Home.jsx'
 
 const CourseDetail = lazy(() => import('./pages/CourseDetail.jsx'))
+const TeamMemberDetail = lazy(() => import('./pages/TeamMemberDetail.jsx'))
+const ComplaintPage = lazy(() => import('./pages/ComplaintPage.jsx'))
 
 function ScrollManager() {
   const { pathname, hash } = useLocation()
@@ -44,6 +46,22 @@ export default function App() {
           element={
             <Suspense fallback={<PageLoader />}>
               <CourseDetail />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/team/:id"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <TeamMemberDetail />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/complaint"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <ComplaintPage />
             </Suspense>
           }
         />

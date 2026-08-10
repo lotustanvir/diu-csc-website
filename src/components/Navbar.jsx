@@ -9,6 +9,7 @@ const links = [
   { label: 'Cyber Care Desk', to: '/#care-desk' },
   { label: 'NCSO', to: '/#ncso' },
   { label: 'About', to: '/#about' },
+  { label: 'Our Team', to: '/#team' },
   { label: 'Contact', to: '/#contact' },
 ]
 

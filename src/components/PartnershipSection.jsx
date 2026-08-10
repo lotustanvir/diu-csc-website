@@ -1,15 +1,22 @@
 import { motion } from 'framer-motion'
-import { Briefcase, GraduationCap, Handshake, Network } from 'lucide-react'
+import {
+  Briefcase,
+  Building2,
+  Handshake,
+  Landmark,
+  Network,
+  Wallet,
+} from 'lucide-react'
 
 const partners = [
   {
-    initials: 'DIU',
-    name: 'Daffodil International University',
-    role: 'Academic Anchor',
-    icon: GraduationCap,
+    initials: 'DG',
+    name: 'Daffodil Group',
+    role: 'Group / Industry Partner',
+    icon: Building2,
     gradient: 'from-electric-500 to-violet-500',
     description:
-      'Provides the academic backbone: world-class labs, certified faculty, campus infrastructure, and the trusted DIU brand behind every credential.',
+      'Provides a broad industry ecosystem, organizational expertise, and strategic support for cybersecurity education, innovation, and workforce development.',
   },
   {
     initials: 'SJ',
@@ -29,13 +36,37 @@ const partners = [
     description:
       'Official Sophos Education Partner delivering vendor hardware labs, enterprise-grade certifications, and channel partner placements.',
   },
+  {
+    initials: 'UP',
+    name: 'Upay',
+    role: 'Digital Financial Services Partner',
+    icon: Wallet,
+    gradient: 'from-emerald-400 to-teal-500',
+    description:
+      'Supports secure digital financial services and creates opportunities for cybersecurity awareness, digital security, and industry collaboration.',
+  },
+  {
+    initials: 'UCB',
+    name: 'United Commercial Bank (UCB)',
+    role: 'Banking & Financial Services Partner',
+    icon: Landmark,
+    gradient: 'from-blue-500 to-indigo-500',
+    description:
+      'Connects cybersecurity with the banking and financial-services ecosystem, supporting industry exposure, security awareness, and professional development.',
+  },
 ]
 
 const wins = [
-  { label: 'Win 1', text: 'Students get real, job-ready skills with placement guarantees.' },
-  { label: 'Win 2', text: 'Industry gets a vetted, certified cyber workforce on demand.' },
-  { label: 'Win 3', text: 'Academia anchors research, ethics, and long-term talent.' },
+  { label: 'Win 1', text: 'Students gain practical cybersecurity skills and industry exposure.' },
+  { label: 'Win 2', text: 'Industry gains access to a skilled and security-aware talent pipeline.' },
+  {
+    label: 'Win 3',
+    text: 'The ecosystem connects education, technology, finance, cybersecurity, and career development.',
+  },
 ]
+
+const cardWidth =
+  'w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]'
 
 export default function PartnershipSection() {
   return (
@@ -55,11 +86,12 @@ export default function PartnershipSection() {
             Our Strategic Alliance
           </h2>
           <p className="mt-4 text-slate-400">
-            Three institutions. One pipeline — from first class to first paycheck.
+            Five partners. One ecosystem — connecting education, industry,
+            technology, finance, and careers.
           </p>
         </motion.div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 flex flex-wrap justify-center gap-6">
           {partners.map((partner, i) => (
             <motion.div
               key={partner.name}
@@ -68,17 +100,19 @@ export default function PartnershipSection() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.55, delay: i * 0.12, ease: 'easeOut' }}
               whileHover={{ y: -6 }}
-              className="glass group relative overflow-hidden rounded-2xl p-7 will-change-transform"
+              className={`glass group relative flex flex-col overflow-hidden rounded-2xl p-7 will-change-transform ${cardWidth}`}
             >
               <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-cyber-400/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
               <div className="flex items-center gap-4">
                 <span
-                  className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br font-mono text-sm font-bold text-white shadow-lg ${partner.gradient}`}
+                  className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br font-mono text-sm font-bold text-white shadow-lg ${partner.gradient}`}
                 >
                   {partner.initials}
                 </span>
                 <div>
-                  <h3 className="font-semibold leading-snug text-white">{partner.name}</h3>
+                  <h3 className="font-semibold leading-snug text-white">
+                    {partner.name}
+                  </h3>
                   <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-cyber-400">
                     {partner.role}
                   </p>

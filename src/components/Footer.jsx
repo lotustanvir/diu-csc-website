@@ -1,15 +1,6 @@
 import { Link } from 'react-router-dom'
-import {
-  Briefcase,
-  Mail,
-  MapPin,
-  Phone,
-  Play,
-  Share2,
-  Shield,
-  Terminal,
-  Zap,
-} from 'lucide-react'
+import { Mail, MapPin, Phone, Shield, Zap } from 'lucide-react'
+import { socials } from '../data/socials.js'
 
 const quickLinks = [
   { label: 'Courses', to: '/#courses' },
@@ -17,13 +8,6 @@ const quickLinks = [
   { label: 'Cyber Care Desk', to: '/#care-desk' },
   { label: 'Our Partners', to: '/#about' },
   { label: 'Testimonials', to: '/#testimonials' },
-]
-
-const socials = [
-  { icon: Share2, label: 'Facebook', href: 'https://facebook.com' },
-  { icon: Briefcase, label: 'LinkedIn', href: 'https://linkedin.com' },
-  { icon: Play, label: 'YouTube', href: 'https://youtube.com' },
-  { icon: Terminal, label: 'GitHub', href: 'https://github.com' },
 ]
 
 export default function Footer() {
@@ -82,7 +66,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-cyber-400" />
-                <span>+880 1712-345678</span>
+                <span>+880 18 419 92222</span>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-cyber-400" />
@@ -99,18 +83,40 @@ export default function Footer() {
               SOCIAL MEDIA
             </h3>
             <div className="mt-5 flex gap-3">
-              {socials.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={social.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-300 transition-all hover:border-cyber-400/50 hover:bg-cyber-400/10 hover:text-cyber-300"
-                >
-                  <social.icon className="h-4.5 w-4.5" />
-                </a>
-              ))}
+              {socials.map((social) => {
+                const icon = (
+                  <img
+                    src={social.image}
+                    alt={social.label}
+                    loading="lazy"
+                    className="h-4.5 w-4.5 object-contain"
+                  />
+                )
+                const box =
+                  'flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-all hover:border-cyber-400/50 hover:bg-cyber-400/10'
+                return social.url ? (
+                  <a
+                    key={social.label}
+                    href={social.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={social.label}
+                    title={social.label}
+                    className={box}
+                  >
+                    {icon}
+                  </a>
+                ) : (
+                  <span
+                    key={social.label}
+                    aria-label={social.label}
+                    title={`${social.label} — link coming soon`}
+                    className={`${box} cursor-default opacity-80`}
+                  >
+                    {icon}
+                  </span>
+                )
+              })}
             </div>
             <p className="mt-6 text-xs leading-relaxed text-slate-500">
               Campus visits welcome — walk into the Cyber Care Desk at Building
